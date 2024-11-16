@@ -1,0 +1,241 @@
+/* funkce na vše - reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+/* nastavení celé herní plochy */
+html {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 494px;
+    margin: 10px auto;
+    background-color: #4f4d29;
+    border: 2px solid #E68369;
+}
+/* hlavička hry */
+.hlavicka {
+    height: 55px;
+    border: 4px, double #E68369;
+    margin: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* nadpis */
+.nadpis {
+    font-family: cursive;
+    font-size: .8em;
+    color: #ECCEAE;
+    word-spacing: 1px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+/* herní plocha */
+.plocha {
+    position: relative;
+    width: 618px;
+    height: 356px;
+    margin: 10px;
+    border: 4px double #E68369;
+    overflow: hidden;
+}
+/* nastavení hlavního menu */
+.start-menu {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: 1;
+}
+/* nadpis hlavního menu */
+.nadpis-menu {
+    color: #ECCEAE;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 4px;
+    padding-bottom: 50px;
+    text-transform: uppercase;
+}
+/* tlačítka hlavního menu */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+/* nastavení tlačítek samotných hlavního menu */
+.start-button,
+.settings-button,
+.exit-button {
+    width: 140px;
+    background: none;
+    border: 2px solid #E68369;
+    border-radius: 4px;
+    color: #ECCEAE;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 6px 0;
+}
+.start-button:hover,
+.settings-button:hover,
+.exit-button:hover {
+    color: #131842;
+    animation: menu-animace .9s ease-in-out infinite;
+    transform-origin: center center;
+}
+/* toto se spustí po stisku tlačítka přes JS */
+.start-button.active,
+.settings-button.active,
+.exit-button.active {
+    animation-play-state: paused;
+    animation: menu-animace-start 1s forwards;
+    color: #ebebeb;
+        
+}
+/* konec hry */
+.konec {
+    display: grid;
+    place-items: center;
+    padding-top: 110px;
+    padding-bottom: 20px;
+    font-size: 45px;
+    color: #FBF6E2;
+    letter-spacing: 2px;
+    word-spacing: 1px;
+    text-shadow: 2px 1px black,
+                -2px 1px black,
+                 2px -1px black,
+                -2px -1px black;
+}
+/* konec hry */
+.restart {
+    padding-top: 30px;
+    width: 75px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
+}
+.exit-hlavni-menu {
+    padding-top: 10px;
+    width: 124px;
+    margin: 0 auto;
+    font-size: 20px;
+    color: white;
+}
+/* herní prvek */
+.objekt {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: cerv .7s ease-out infinite;
+    transform-origin: center center;
+}
+/* odpočet v objektu */
+.odpocet {
+    height: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -43%);
+    z-index: 1;
+    }
+/* tabulka pod herní plochou */
+.tabulka {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    border: 4px double #E68369;
+    margin: 0 8px 0 10px;
+}
+/* zobrazení počtu bodů */
+.score{
+    width: 50%;
+    text-align: center;
+    border-right: 4px double #E68369;
+    font-family: cursive;
+    color: #ECCEAE;
+    font-size: 1.3em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    }
+/* zobrazení počtu životů */
+.zivoty {
+    width: 50%;
+    text-align: center;
+    font-family: cursive;
+    color: #ECCEAE;
+    font-size: 1.3em;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    
+}
+footer {
+    text-align: right;
+    margin: 0 auto;
+    margin-top: 390px;
+    padding-right: 15px;
+    
+}
+/* verze hry */
+.verze {
+    padding: 4px;
+    color: #ECCEAE;
+}
+/* potřebné pro JS funkci - pomalé zmizení objektů při ukončení */
+.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+} 
+/* animace pro .objekt */
+@keyframes cerv {
+    0% {
+        border: 1px solid #FBF6E2;
+        transform: scale(1);
+        background-color: rgb(104, 104, 104);
+    }
+    90% {
+        transform: scale(.92);
+        background-color: rgb(50, 50, 50);
+    }
+    100% {
+        border: 4px solid #FBF6E2;
+        transform: scale(1);
+        background-color: rgb(104, 104, 104);
+
+    } 
+}
+/* animace pro
+.start-button:hover,
+.settings-button:hover,
+.exit-button:hover */
+@keyframes menu-animace {
+    0% {background: #ecceae;
+    }
+    50% {background: #ecceae84;
+    }
+    100% {
+        background: #ecceaee7;
+    }
+}
+/* animace pro
+.start-button.active,
+.settings-button.active,
+.exit-button.active */
+@keyframes menu-animace-start {
+    0% {
+        transform: scale(1);
+    }
+    100% {transform: scale(0);
+        opacity: .2; 
+    }
+}

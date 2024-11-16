@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my first web game</title>
+    <link rel="stylesheet" href="game_quickclick.css">
+    <script type="module" src="game_quickclick.js" defer></script>
+</head>
+<body>
+        <!-- hlavička hry -->
+        <header class="hlavicka">
+            <!-- nadpis hry -->
+            <div class="nadpis"><h1> - quick click - </h1></div>
+        </header>
+        <main>
+            <div class="start-menu">
+                <h1 class="nadpis-menu">game menu</h1>
+                <div class="buttons">
+                    <button class="start-button">start</button>
+                    <button class="settings-button">settings</button>
+                    <button class="exit-button">exit</button>
+                </div>
+            </div>
+            <div class="plocha">  
+                <div class="konec"></div>
+                <div class="restart"></div>
+                <div class="exit-hlavni-menu"></div>
+                <!-- herní prvek -->
+                <div class="objekt">
+                    <!-- odpočet v objektu -->
+                    <span class="odpocet"></span>
+                </div> 
+            </div>
+            <!-- tabulka pod herní plochou -->
+            <div class="tabulka">
+                <!-- zobrazení počtu bodů -->
+                <div class="score"></div>
+                <!-- zobrazení počtu životů -->
+                <div class="zivoty"></div>
+            </div>
+        </main>
+        <footer>
+            <div class="verze">
+                <p>version 2.0</p>
+            </div>
+        </footer>
+</body>
+</html>
